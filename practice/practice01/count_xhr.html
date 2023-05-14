@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <input type="text" name="a" id="a">
+        <br>
+        <input type="text" name="b" id="b">
+        <br>
+        <button onclick="checkForm(event)">submit</button>
+        <div id="c"></div>
+        <input type="text">
+        <input type="text">
+
+        <script>
+            function checkForm(event) {
+                const a = document.querySelector('#a').value
+                const b = document.querySelector('#b').value
+                console.log({ a, b })
+                const xhr = new XMLHttpRequest();
+                // xhr.onload = function () {
+                //     c.innerHTML = xhr.responseText
+                // };
+                xhr.open('GET', `count.php?a=${a}&b=${b}`, false);
+                xhr.send();
+                c.innerHTML = xhr.responseText
+
+            }
+
+
+        </script>
+    </body>
+
+</html>

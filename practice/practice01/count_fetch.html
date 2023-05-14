@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <form name="form1" onsubmit="checkform(event)">
+            <input type="text" name="a" id="a">
+            <br>
+            <input type="text" name="b" id="b">
+            <br>
+            <button>submit</button>
+        </form>
+        <div class="c"></div>
+
+
+        <script>
+            function checkform(event) {
+                event.preventDefault()
+                let a = document.querySelector('#a').value
+                let b = document.querySelector('#b').value
+                console.log({ a, b })
+
+                fetch(`count.php?a=${a}&b=${b}`)
+                    .then(r => r.text())
+                    .then(txt => {
+                        console.log(txt)
+                        document.querySelector('.c').innerHTML = txt
+                    })
+            }
+
+
+        </script>
+    </body>
+
+</html>
