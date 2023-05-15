@@ -1,7 +1,7 @@
 <?php
 
 $db_host = 'localhost';
-$db_name = 'coach';
+$db_name = 'shoppingcart';
 $db_user = 'root';
 $db_pass = 'root';
 
